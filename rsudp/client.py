@@ -253,7 +253,7 @@ def run(settings, debug):
 
 	if settings['alertsound']['enabled']:
 		soundloc = os.path.expanduser(os.path.expanduser(settings['alertsound']['mp3file']))
-		if soundloc in ['doorbell', 'alarm', 'beeps', 'sonar']:
+		if soundloc in ['doorbell', 'alarm', 'beeps', 'sonar', 'beep']:
 			soundloc = pr.resource_filename('rsudp', os.path.join('rs_sounds', '%s.mp3' % soundloc))
 
 		q = mk_q()
