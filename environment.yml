@@ -28,3 +28,4 @@ dependencies:
     - yarl==1.4.2
     - rsudp
     - PyQt5
+    - python-telegram-bot

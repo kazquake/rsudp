@@ -229,6 +229,9 @@ def run(settings, debug):
 			_xit(1)
 
 	if settings['alert']['enabled']:
+		# telegram
+		token_alarmer = settings['telegram']['token']
+		chat_id_alarmer = settings['telegram']['chat_id']
 		# put settings in namespace
 		sta = settings['alert']['sta']
 		lta = settings['alert']['lta']
@@ -248,7 +251,7 @@ def run(settings, debug):
 		q = mk_q()
 		alrt = Alert(sta=sta, lta=lta, thresh=thresh, reset=reset, bp=bp,
 					 cha=cha, debug=debug, q=q, testing=TESTING,
-					 deconv=deconv)
+					 deconv=deconv, token_alarmer=token_alarmer, chat_id_alarmer=chat_id_alarmer)
 		mk_p(alrt)
 
 	if settings['alertsound']['enabled']:

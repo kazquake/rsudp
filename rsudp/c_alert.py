@@ -6,6 +6,9 @@ from rsudp import printM, printW, printE
 from rsudp import COLOR, helpers
 from rsudp.test import TEST
 import numpy as np
+import rsudp.helpers as H
+import json
+import requests
 
 # set the terminal text color to green
 COLOR['current'] = COLOR['green']
@@ -132,7 +135,7 @@ class Alert(rs.ConsumerThread):
 
 
 	def __init__(self, q, sta=5, lta=30, thresh=1.6, reset=1.55, bp=False,
-				 debug=True, cha='HZ', sound=False, deconv=False, testing=False,
+				 debug=True, cha='HZ', sound=False, deconv=False, testing=False, token_alarmer="n/ah", chat_id_alarmer="n/ah",
 				 *args, **kwargs):
 		"""
 		Initializing the alert thread with parameters to set up the recursive
@@ -171,6 +174,9 @@ class Alert(rs.ConsumerThread):
 		
 		self._set_filt(bp)
 		self._print_filt()
+
+		self.token_alarmer = token_alarmer
+		self.chat_id_alarmer = chat_id_alarmer
 
 
 	def _getq(self):
@@ -251,6 +257,11 @@ class Alert(rs.ConsumerThread):
 				COLOR['current'] = COLOR['purple']
 				if self.testing:
 					TEST['c_alerton'][1] = True
+				# Create the message with the threshold data
+				message = f"🚨 [{self.stalta.max():.2f}] Активность сейсмического сигнала составляет {self.stalta.max():.2f}, что превышает установленный порог в {self.thresh}. " \
+						f"Триггер активирован в {self.alarm.strftime('%Y-%m-%d %H:%M:%S')}."
+				self.send_telegram_message_alarmer(message, self)
+
 			else:
 				pass
 
@@ -291,6 +302,33 @@ class Alert(rs.ConsumerThread):
 			print(COLOR['current'] + COLOR['bold'] + msg + COLOR['white'], end='', flush=True)
 
 
+	@staticmethod
+	def send_telegram_message_alarmer(message, self):
+		"""
+		Sends a message to a Telegram chat using the Telegram Bot API.
+
+		Parameters:
+		- message (str): Message to send
+		- self
+		"""
+
+		url = f"https://api.telegram.org/bot{self.token_alarmer}/sendMessage"
+		params = {
+			'chat_id': self.chat_id_alarmer,
+			'text': message,
+			'parse_mode': 'HTML'  # Use 'Markdown' if you want to send messages in Markdown format
+		}
+
+		response = requests.post(url, data=params)
+		
+		if response.status_code != 200:
+			printM(f"[Telegram Alarmer] Failed to send message. HTTP Status Code: {response.status_code}")
+			return False
+		else:
+			printM("[Telegram Alarmer] Message sent successfully!")
+			return True
+
+	
 	def run(self):
 		"""
 		Reads data from the queue into a :class:`obspy.core.stream.Stream` object,
