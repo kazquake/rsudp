@@ -1,3 +1,4 @@
+import socket
 import sys
 from datetime import timedelta
 import rsudp.raspberryshake as rs
@@ -301,6 +302,21 @@ class Alert(rs.ConsumerThread):
 					)
 			print(COLOR['current'] + COLOR['bold'] + msg + COLOR['white'], end='', flush=True)
 
+	def _open_udp_connection(self):
+		"""
+        Opens a UDP socket and keeps the connection open.
+        """
+		self.udp_ip = "0.0.0.0"  # Update with the actual IP address if necessary
+		self.udp_port = 5005  # Update with the actual port number if necessary
+		self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+		printM('UDP connection opened on IP %s, port %s' % (self.udp_ip, self.udp_port), self.sender)
+
+	def _send_udp_message(self, message):
+		"""
+        Sends a message via the open UDP connection.
+        """
+		udp_message = str(message).encode('utf-8')
+		self.sock.sendto(udp_message, (self.udp_ip, self.udp_port))
 
 	@staticmethod
 	def send_telegram_message_alarmer(message, self):
@@ -336,6 +352,10 @@ class Alert(rs.ConsumerThread):
 		determine whether to raise an alert flag (:py:data:`rsudp.c_alert.Alert.alarm`).
 		The producer reads this flag and uses it to notify other consumers.
 		"""
+
+		# send udp current STA/LTA via 5005 port
+		self._open_udp_connection()
+
 		n = 0
 
 		wait_pkts = (self.lta) / (rs.tf / 1000)
@@ -368,6 +388,9 @@ class Alert(rs.ConsumerThread):
 
 				# print the current STA/LTA calculation
 				self._print_stalta()
+
+				# send the current STA/LTA via UDP
+				self._send_udp_message(round(np.max(self.stalta[-50:]), 4))
 
 			elif n == 0:
 				printM('Starting Alert trigger with sta=%ss, lta=%ss, and threshold=%s on channel=%s'
