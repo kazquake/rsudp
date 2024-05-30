@@ -29,3 +29,4 @@ dependencies:
     - kazquakersudp==1.1.2
     - PyQt5
     - python-telegram-bot
+    - matplotlib==3.2.0

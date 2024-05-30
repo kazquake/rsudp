@@ -12,7 +12,7 @@ from . import _version
 Contains logging and formatting resources for command line and logfile output of rsudp.
 '''
 
-name = 'rsudp'
+name = 'kazquakersudp'
 __version__ = _version.version
 
 default_loc = '%s/.config/rsudp' % os.path.expanduser('~').replace('\\', '/')
