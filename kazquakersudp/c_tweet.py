@@ -1,8 +1,8 @@
 import os, sys
 import time
-import rsudp.raspberryshake as rs
-from rsudp import printM, printW, printE, helpers
-from rsudp.test import TEST
+import kazquakersudp.raspberryshake as rs
+from kazquakersudp import printM, printW, printE, helpers
+from kazquakersudp.test import TEST
 from twython import Twython
 
 

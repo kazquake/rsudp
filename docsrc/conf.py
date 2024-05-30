@@ -27,7 +27,7 @@ author = 'Ian Nesbitt, Richard Boaz'
 
 # The short X.Y version
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from rsudp._version import version
+from kazquakersudp._version import version
 # The full version, including alpha/beta/rc tags
 release = ''
 

@@ -1,8 +1,8 @@
 import sys
 from threading import Thread
-from rsudp import printM, printW, printE, helpers
-import rsudp.raspberryshake as RS
-from rsudp.test import TEST
+from kazquakersudp import printM, printW, printE, helpers
+import kazquakersudp.raspberryshake as RS
+from kazquakersudp.test import TEST
 
 
 class Producer(Thread):

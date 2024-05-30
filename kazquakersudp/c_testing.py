@@ -1,8 +1,8 @@
 import sys, os
-import rsudp.raspberryshake as rs
-from rsudp import printM, printW, helpers
-from rsudp import ms_path
-import rsudp.test as t
+import kazquakersudp.raspberryshake as rs
+from kazquakersudp import printM, printW, helpers
+from kazquakersudp import ms_path
+import kazquakersudp.test as t
 
 IMGPATH = False
 

@@ -1,13 +1,13 @@
 import socket
 import sys
 from datetime import timedelta
-import rsudp.raspberryshake as rs
+import kazquakersudp.raspberryshake as rs
 from obspy.signal.trigger import recursive_sta_lta, trigger_onset
-from rsudp import printM, printW, printE
-from rsudp import COLOR, helpers
-from rsudp.test import TEST
+from kazquakersudp import printM, printW, printE
+from kazquakersudp import COLOR, helpers
+from kazquakersudp.test import TEST
 import numpy as np
-import rsudp.helpers as H
+import kazquakersudp.helpers as H
 import json
 import requests
 

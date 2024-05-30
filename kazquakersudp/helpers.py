@@ -1,5 +1,5 @@
-import rsudp.raspberryshake as rs
-from rsudp import COLOR, printM, printW
+import kazquakersudp.raspberryshake as rs
+from kazquakersudp import COLOR, printM, printW
 import os
 import json
 

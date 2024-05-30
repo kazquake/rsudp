@@ -1,7 +1,7 @@
 import sys
-from rsudp.raspberryshake import ConsumerThread
-from rsudp import printM, printW, printE
-from rsudp.test import TEST
+from kazquakersudp.raspberryshake import ConsumerThread
+from kazquakersudp import printM, printW, printE
+from kazquakersudp.test import TEST
 
 
 class PrintRaw(ConsumerThread):

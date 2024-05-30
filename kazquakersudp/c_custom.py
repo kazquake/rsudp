@@ -1,7 +1,7 @@
 import sys, os
-from rsudp import printM, printW, printE
-from rsudp.raspberryshake import ConsumerThread
-from rsudp.test import TEST
+from kazquakersudp import printM, printW, printE
+from kazquakersudp.raspberryshake import ConsumerThread
+from kazquakersudp.test import TEST
 
 
 class Custom(ConsumerThread):

@@ -1,7 +1,7 @@
 import platform
 import subprocess
 import os
-from rsudp import COLOR, log_loc, settings_loc
+from kazquakersudp import COLOR, log_loc, settings_loc
 
 
 def ep_edit_settings():

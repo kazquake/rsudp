@@ -1,33 +1,33 @@
 import setuptools
-from rsudp import _version
+from kazquakersudp import _version
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 
 setuptools.setup(
-    name="rsudp",
+    name="kazquakersudp",
     version=_version.version,
-    author="Ian Nesbitt",
-    author_email="ian.nesbitt@raspberryshake.org",
+    author="Rishat Sultanov",
+    author_email="rihasultanov@gmail.com",
     license='GPLv3',
     description="Tools for receiving and interacting with Raspberry Shake UDP data",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/raspishake/rsudp",
+    url="https://github.com/kazquake/rsudp",
     packages=setuptools.find_packages(),
     include_package_data=True,
     install_requires=['obspy', 'numpy', 'matplotlib<3.2', 'pydub', 'twython',
                       'python-telegram-bot<=13.11'],
     entry_points = {
         'console_scripts': [
-            'rs-packetloss=rsudp.packetloss:main',
-            'rs-client=rsudp.client:main',
-            'rs-test=rsudp.client:test',
-            'packetize=rsudp.packetize:main',
-            'rs-settings=rsudp.entry_points:ep_edit_settings',
-            'rs-log=rsudp.entry_points:ep_cat_log',
-            'rs-tailf=rsudp.entry_points:ep_tailf_log',
+            'rs-packetloss=kazquakersudp.packetloss:main',
+            'rs-client=kazquakersudp.client:main',
+            'rs-test=kazquakersudp.client:test',
+            'packetize=kazquakersudp.packetize:main',
+            'rs-settings=kazquakersudp.entry_points:ep_edit_settings',
+            'rs-log=kazquakersudp.entry_points:ep_cat_log',
+            'rs-tailf=kazquakersudp.entry_points:ep_tailf_log',
             ],
     },
     classifiers=[

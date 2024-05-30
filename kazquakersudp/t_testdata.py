@@ -1,9 +1,9 @@
 import os, sys
 from threading import Thread
 import socket as s
-from rsudp import printM, printW, helpers
-import rsudp.raspberryshake as rs
-from rsudp.test import TEST
+from kazquakersudp import printM, printW, helpers
+import kazquakersudp.raspberryshake as rs
+from kazquakersudp.test import TEST
 import time
 from queue import Empty
 

@@ -4,8 +4,8 @@ import os, sys
 import getopt
 from obspy import read
 from datetime import timedelta
-from rsudp.test import TEST
-from rsudp.helpers import lesser_multiple
+from kazquakersudp.test import TEST
+from kazquakersudp.helpers import lesser_multiple
 
 
 SMP = {

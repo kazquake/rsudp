@@ -1,5 +1,5 @@
 import os, sys
-from rsudp import COLOR, printM, printW, printE
+from kazquakersudp import COLOR, printM, printW, printE
 import socket
 import json
 

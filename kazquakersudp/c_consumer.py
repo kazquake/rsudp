@@ -1,7 +1,7 @@
 import sys
 from threading import Thread
-from rsudp import printM, printW, printE
-from rsudp.test import TEST
+from kazquakersudp import printM, printW, printE
+from kazquakersudp.test import TEST
 
 
 class Consumer(Thread):

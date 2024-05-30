@@ -1,7 +1,7 @@
 import sys
 import getopt
 import signal
-from rsudp import raspberryshake, printM, printW, printE, add_debug_handler
+from kazquakersudp import raspberryshake, printM, printW, printE, add_debug_handler
 
 # some globals
 DPtime = {}

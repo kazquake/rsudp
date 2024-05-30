@@ -1,8 +1,8 @@
 import os, sys
 import socket as s
-from rsudp import printM, printW, printE
-import rsudp.raspberryshake as rs
-from rsudp.test import TEST
+from kazquakersudp import printM, printW, printE
+import kazquakersudp.raspberryshake as rs
+from kazquakersudp.test import TEST
 
 class Forward(rs.ConsumerThread):
 	"""

@@ -4,9 +4,9 @@ import time
 import math
 import numpy as np
 from datetime import datetime, timedelta
-import rsudp.raspberryshake as rs
-from rsudp import printM, printW, printE, get_scap_dir, helpers
-from rsudp.test import TEST
+import kazquakersudp.raspberryshake as rs
+from kazquakersudp import printM, printW, printE, get_scap_dir, helpers
+from kazquakersudp.test import TEST
 import linecache
 sender = 'plot.py'
 QT = False

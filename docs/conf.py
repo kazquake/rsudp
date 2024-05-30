@@ -17,7 +17,7 @@ import sys
 #sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('../'))
 from datetime import datetime
-import rsudp
+import kazquakersudp
 import sphinx_rtd_theme
 
 
@@ -28,7 +28,7 @@ copyright = '%s, Raspberry Shake S.A.' % datetime.now().year
 author = 'Ian Nesbitt, Richard Boaz'
 
 # The short X.Y version
-version = rsudp.__version__
+version = kazquakersudp.__version__
 # The full version, including alpha/beta/rc tags
 release = ''
 

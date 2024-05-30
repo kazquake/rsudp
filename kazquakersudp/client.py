@@ -5,26 +5,26 @@ import time
 import json
 import traceback
 from queue import Queue
-from rsudp import printM, printW, printE, default_loc, init_dirs, settings_loc, add_debug_handler, start_logging
-from rsudp import COLOR
-import rsudp.helpers as H
-import rsudp.test as T
-import rsudp.raspberryshake as rs
-from rsudp.packetize import packetize
-from rsudp.c_consumer import Consumer
-from rsudp.p_producer import Producer
-from rsudp.c_printraw import PrintRaw
-from rsudp.c_write import Write
-from rsudp.c_plot import Plot, MPL
-from rsudp.c_forward import Forward
-from rsudp.c_alert import Alert
-from rsudp.c_alertsound import AlertSound
-from rsudp.c_custom import Custom
-from rsudp.c_tweet import Tweeter
-from rsudp.c_telegram import Telegrammer
-from rsudp.c_rsam import RSAM
-from rsudp.c_testing import Testing
-from rsudp.t_testdata import TestData
+from kazquakersudp import printM, printW, printE, default_loc, init_dirs, settings_loc, add_debug_handler, start_logging
+from kazquakersudp import COLOR
+import kazquakersudp.helpers as H
+import kazquakersudp.test as T
+import kazquakersudp.raspberryshake as rs
+from kazquakersudp.packetize import packetize
+from kazquakersudp.c_consumer import Consumer
+from kazquakersudp.p_producer import Producer
+from kazquakersudp.c_printraw import PrintRaw
+from kazquakersudp.c_write import Write
+from kazquakersudp.c_plot import Plot, MPL
+from kazquakersudp.c_forward import Forward
+from kazquakersudp.c_alert import Alert
+from kazquakersudp.c_alertsound import AlertSound
+from kazquakersudp.c_custom import Custom
+from kazquakersudp.c_tweet import Tweeter
+from kazquakersudp.c_telegram import Telegrammer
+from kazquakersudp.c_rsam import RSAM
+from kazquakersudp.c_testing import Testing
+from kazquakersudp.t_testdata import TestData
 import pkg_resources as pr
 
 

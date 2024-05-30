@@ -2,11 +2,11 @@ import sys, os, time
 import socket as s
 from datetime import timedelta
 import statistics
-from rsudp import printM, printW, printE
-from rsudp import helpers
-import rsudp.raspberryshake as rs
-from rsudp import COLOR
-from rsudp.test import TEST
+from kazquakersudp import printM, printW, printE
+from kazquakersudp import helpers
+import kazquakersudp.raspberryshake as rs
+from kazquakersudp import COLOR
+from kazquakersudp.test import TEST
 
 # set the terminal text color to green
 COLOR['current'] = COLOR['green']
