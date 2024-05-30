@@ -163,6 +163,8 @@ def run(settings, debug):
 
 
 	output_dir = settings['settings']['output_dir']
+	presenter_port = settings['settings']['presenter_port']
+	presenter_host = settings['settings']['host']
 
 
 	if settings['printdata']['enabled']:

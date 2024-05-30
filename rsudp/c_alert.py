@@ -137,6 +137,7 @@ class Alert(rs.ConsumerThread):
 
 	def __init__(self, q, sta=5, lta=30, thresh=1.6, reset=1.55, bp=False,
 				 debug=True, cha='HZ', sound=False, deconv=False, testing=False, token_alarmer="n/ah", chat_id_alarmer="n/ah",
+				 presenter_host="0.0.0.0", presenter_port=5005,
 				 *args, **kwargs):
 		"""
 		Initializing the alert thread with parameters to set up the recursive
@@ -159,6 +160,9 @@ class Alert(rs.ConsumerThread):
 		self.kwargs = kwargs
 		self.raw = rs.Stream()
 		self.stream = rs.Stream()
+
+		self.presenter_host = presenter_host
+		self.presenter_port = presenter_port
 
 		self._set_channel(cha)
 
@@ -306,17 +310,15 @@ class Alert(rs.ConsumerThread):
 		"""
         Opens a UDP socket and keeps the connection open.
         """
-		self.udp_ip = "0.0.0.0"  # Update with the actual IP address if necessary
-		self.udp_port = 5005  # Update with the actual port number if necessary
 		self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-		printM('UDP connection opened on IP %s, port %s' % (self.udp_ip, self.udp_port), self.sender)
+		printM('UDP connection opened to IP %s, port %s' % (self.presenter_host, self.presenter_port), self.sender)
 
 	def _send_udp_message(self, message):
 		"""
         Sends a message via the open UDP connection.
         """
 		udp_message = str(message).encode('utf-8')
-		self.sock.sendto(udp_message, (self.udp_ip, self.udp_port))
+		self.sock.sendto(udp_message, (self.presenter_host, self.presenter_port))
 
 	@staticmethod
 	def send_telegram_message_alarmer(message, self):
